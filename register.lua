@@ -278,6 +278,9 @@ unified_inventory.register_page("craftguide", {
 		else
 			item_name_shown = item_name
 		end
+		if player_privs.judge == true and econ and econ.price_of then
+			item_name_shown = item_name_shown .. econ.price_of(item_name)
+		end
 
 		local dir = unified_inventory.current_craft_direction[player_name]
 		local rdir
